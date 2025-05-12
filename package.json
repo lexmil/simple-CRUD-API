@@ -1,0 +1,37 @@
+{
+  "name": "simple-crud-api",
+  "version": "1.0.0",
+  "description": "",
+  "homepage": "https://github.com/lexmil/simple-CRUD-API#readme",
+  "bugs": {
+    "url": "https://github.com/lexmil/simple-CRUD-API/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lexmil/simple-CRUD-API.git"
+  },
+  "license": "ISC",
+  "author": "lexmil",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev src/index.ts",
+    "start": "node dist/index.js",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "dotenv": "^16.5.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "@types/node": "^22.15.17",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.26.0",
+    "nodemon": "^3.1.10",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.8.3",
+    "webpack": "^5.99.8",
+    "webpack-cli": "^6.0.1"
+  }
+}
