@@ -1,15 +1,29 @@
 import { createServer } from 'http';
+import dotenv from 'dotenv';
 import { usersRouter } from './routes/users';
 
-const server = createServer((req, res) => {
-	if (req.url?.startsWith('/api/users')) {
-		return usersRouter(req, res);
-	}
 
-	res.writeHead(404);
-	res.end('Not found');
+dotenv.config();
+
+const PORT = process.env.PORT || 3000;
+
+const server = createServer((req, res) => {
+	try {
+		if (req.url?.startsWith('/api/users')) {
+			return usersRouter(req, res);
+		}
+
+		res.writeHead(404);
+		res.end('Not found');
+	} catch (error) {
+		res.writeHead(500, { 'Content-Type': 'application/json' });
+		res.end(JSON.stringify({
+			error: 'Internal Server Error',
+			message: (error as Error).message || 'Unexpected server error',
+		}));
+	}
 });
 
-server.listen(3000, () => {
+server.listen(PORT, () => {
 	console.log('Server running at http://localhost:3000');
 });
