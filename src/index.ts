@@ -2,12 +2,11 @@ import { createServer } from 'http';
 import dotenv from 'dotenv';
 import { usersRouter } from './routes/users';
 
-
 dotenv.config();
 
-const PORT = process.env.PORT || 3000;
+const PORT = Number(process.env.PORT) || 4000;
 
-const server = createServer((req, res) => {
+export const server = createServer((req, res) => {
 	try {
 		if (req.url?.startsWith('/api/users')) {
 			return usersRouter(req, res);
@@ -25,5 +24,5 @@ const server = createServer((req, res) => {
 });
 
 server.listen(PORT, () => {
-	console.log('Server running at http://localhost:3000');
+	console.log('Server running at http://localhost:' + PORT);
 });

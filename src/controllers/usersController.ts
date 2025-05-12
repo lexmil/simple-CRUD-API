@@ -1,6 +1,7 @@
 import { IncomingMessage, ServerResponse } from 'http';
 import { v4 as uuidv4 } from 'uuid';
-import { db, User } from '../models/user';
+import { User } from '../models/user';
+import { db } from '../db';
 import { isUUID, parseBody } from '../utils/validate';
 
 export const getAllUsers = (_: IncomingMessage, res: ServerResponse) => {
